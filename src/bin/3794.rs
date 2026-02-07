@@ -11,19 +11,21 @@ impl Solution {
     }
 }
 
-//simpler
-struct Solution2;
-impl Solution2 {
-    pub fn reverse_prefix(s: String, k: i32) -> String {
-        let head:String = s[..k as usize].chars().rev().collect();
-        let res = head + &s[k as usize..];
+// //simpler
+// struct Solution2;
+// impl Solution2 {
+//     pub fn reverse_prefix(s: String, k: i32) -> String {
+//         let head:String = s[..k as usize].chars().rev().collect();
+//         let res = head + &s[k as usize..];
         
-        return res
-    }
-}
+//         return res
+//     }
+// }
 
 
 pub fn main() {
-    Solution::reverse_prefix(String::from("a text for a text"), 3);
+    let s = "a text for a text".to_string();
+    let result = Solution::reverse_prefix(s, 3);
+    println!("{}", result)
 
 }

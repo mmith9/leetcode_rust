@@ -21,6 +21,8 @@ impl Solution {
 }
 
 pub fn main() {
-
+    let strs = vec!["aaaa".to_string(), "bbbb".to_string()];
+    let result = Solution::longest_common_prefix(strs);
+    println!("{}", result);
 
 }

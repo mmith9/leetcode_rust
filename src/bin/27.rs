@@ -19,5 +19,8 @@ impl Solution {
 
 
 pub fn main() {
+    let mut nums = vec![10,20,30,40,50,100];
+    let result = Solution::remove_element(&mut nums, 30);
+    println!("{}", result)
 
 }

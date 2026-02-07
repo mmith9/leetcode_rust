@@ -14,5 +14,10 @@ impl Solution {
     }
 }
 
-pub fn main() {}
+pub fn main() {
+    let word = "asdasdfsadfdha".to_string();
+    let result = Solution::min_time_to_type(word);
+    println!("{}", result);
+
+}
 
