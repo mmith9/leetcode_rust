@@ -3,6 +3,7 @@ struct Solution;
 
 // branchless 1 pass, 0 ms
 impl Solution {
+    #[inline(never)]
     pub fn minimum_deletions(s: String) -> i32 {
         let (mut tmp_a, mut all_a, mut res) = (0,0,0);
 
@@ -60,6 +61,7 @@ pub fn main() {
     let s = "aababbab".to_string();
     let result = Solution::minimum_deletions(s);
     println!("{} expected 2",result);
+    
     let s = "bbaaaaabb".to_string();
     let result = Solution::minimum_deletions(s);
     println!("{} expected 2",result);

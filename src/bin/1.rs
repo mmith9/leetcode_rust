@@ -1,6 +1,7 @@
 struct Solution;
 
 impl Solution {
+    #[inline(never)]
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut res = Vec::new();
         for x in 0..nums.len()-1 {
