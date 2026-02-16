@@ -9,10 +9,10 @@ impl Solution {
         let parity = (arr.len() %2) as i32;
         let half = ((arr.len() - 1)/2) as i32;
         let mut factor = half+1;
-
+        
         for (idx, num) in arr.iter().enumerate() {
             res += factor * num;
-            factor += half -parity -idx as i32 +(parity & idx as i32);
+            factor += half -(idx as i32|parity);
         }
         return res
     }
