@@ -22,23 +22,18 @@ struct Solution;
 use std::rc::Rc;
 use std::cell::RefCell;
 
-
 impl Solution {
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        return Solution::recu(0, &root);
-    }
-
-    fn recu(depth:i32, node: &Option<Rc<RefCell<TreeNode>>>) -> i32{
-        let mut res:i32;
-        match node {
-            None => {return depth}
-            Some(node_wrapper) => {
-                let a_node = node_wrapper.borrow();
-                res = Solution::recu(depth+1, &a_node.left);
-                res = res.max(Solution::recu(depth+1, &a_node.right));
+        fn recu(node: &Option<Rc<RefCell<TreeNode>>>) -> i32{
+            match node {
+                None => 0,
+                Some(node_wrapper) => {
+                    let a_node = node_wrapper.borrow();
+                    1 + recu(&a_node.left).max(recu(&a_node.right))
+                }
             }
         }
-        return res;
+    return recu(&root);
     }
 }
 
