@@ -5,21 +5,18 @@ struct Sorted3 {
 }
 impl Sorted3 {
     pub fn new() -> Self {
-       Sorted3{a:0,b:0,c:0}
+       Sorted3{a:0,b:-1,c:-1}
     }
     pub fn add(&mut self, x:i32) {
+        if x <= self.c {return}
+        if x == self.b || x == self.a {return}
         if x > self.a {
-            self.c = self.b;
-            self.b = self.a;
-            self.a = x;
+            (self.a, self.b, self.c) = (x, self.a, self.b);
         } 
-        else if x == self.a {}
         else if x > self.b {
-            self.c = self.b;
-            self.b = x;
+            (self.b, self.c) = (x, self.b,);            
         }
-        else if x == self.b {}
-        else if x > self.c {
+        else {
             self.c = x;
         }
     }
@@ -32,7 +29,7 @@ impl Sorted3 {
 impl Solution {
     pub fn get_biggest_three(grid: Vec<Vec<i32>>) -> Vec<i32> {
         let lenx = grid[0].len(); let leny = grid.len();
-        if lenx ==1 || leny==1 {
+        if lenx < 3 || leny < 3 {
             let mut res = grid.into_iter().flatten().map(|x| x).collect::<Vec<i32>>();
             res.sort(); res.dedup();
             return res.into_iter().rev().take(3).collect();
